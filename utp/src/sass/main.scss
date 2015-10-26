@@ -1,0 +1,554 @@
+@import "variables.scss";
+@import "mixins.scss";
+
+// Global Components
+
+body {
+	overflow-x: hidden;
+	@include body-font;
+}
+
+.text-muted {
+	color: $gray;
+}
+
+.text-primary {
+	color: $brand-primary;
+}
+
+p {
+	font-size: 14px;
+	line-height: 1.75;
+}
+
+p.large {
+	font-size: 16px;
+}
+
+a,
+a:hover,
+a:focus,
+a:active,
+a.active {
+	outline: none;
+}
+
+a {
+	color: $brand-primary;
+}
+
+a:hover,
+a:focus,
+a:active,
+a.active {
+	color: darken($brand-primary, 10%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	@include heading-font;
+	font-weight: 700;
+}
+
+.img-centered {
+	margin: 0 auto;
+}
+
+.bg-light-gray {
+	background-color: $gray-lighter;
+}
+
+.bg-darkest-gray {
+	background-color: $gray;
+}
+
+.bg-brand {
+	background-color: $brand-primary;
+}
+
+// Restyled Primary Buttons
+
+.btn-primary {
+	@include button-variant( white, $brand-primary, $brand-primary);
+	@include heading-font;
+	font-weight: 700;
+}
+
+.btn-xl {
+	@include button-variant( white, $brand-primary, $brand-primary);
+	@include heading-font;
+	font-weight: 700;
+	border-radius: 3px;
+	font-size: 18px;
+	padding: 20px 40px;
+}
+
+// Custom Navigation Bar
+
+.navbar-default {
+	background-color: $gray-darkest;
+	border-bottom: 2px solid #cccccc;
+	.navbar-brand {
+		color: $brand-primary;
+		padding: 0px 10px;
+		@include script-font;
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+        	color: darken( $brand-primary, 10%);
+        }
+	}
+	.navbar-collapse {
+		border-color: fade(white, 2%);
+	}
+	.navbar-toggle {
+		background-color: $brand-primary;
+		border-color: $brand-primary;
+		.icon-bar {
+			background-color: white;
+		}
+		&:hover,
+		&:focus {
+			background-color: $brand-primary;
+		}
+	}
+    .nav {
+    	li {
+    		a {
+    			@include heading-font;
+    			font-weight: 400;
+    			letter-spacing: 1px;
+    			color: white;
+    			&:hover,
+    			&:focus {
+    				border-radius: 5px;
+    				color: white;
+    				outline: none;
+    				background-color: darken($brand-primary, 10%);
+    			}
+    		}
+    	}
+    }
+	.navbar-nav>.active>a {
+		border-radius: 5px;
+		color: white;
+		background-color: darken($brand-primary, 10%);
+	}
+	.navbar-nav>.active>a:hover,
+	.navbar-nav>.active>a:focus {
+		color: white;
+		background-color: darken($brand-primary, 10%);
+	}
+}
+
+@media(min-width:768px) {
+    .navbar-default {
+    	background-color: transparent;
+        padding: 35px 0;
+        -webkit-transition: padding 0.3s;
+        -moz-transition: padding 0.3s;
+        transition: padding 0.3s;
+        border: none;
+	    .navbar-brand {
+	        font-size: 2em;
+	        -webkit-transition: all 0.3s;
+	        -moz-transition: all 0.3s;
+	        transition: all 0.3s;
+	    }
+		.navbar-nav>.active>a {
+			border-radius: 5px;
+		}
+		.navbar-collapse {
+	    	padding: 10px 0;
+	    }
+    }
+
+    .navbar-default.navbar-shrink {
+    	background-color: $gray-darkest;
+    	border-bottom: 3px solid #cccccc;
+        padding: 15px 0;
+        .nav {
+	    	li {
+	    		a {
+	    			@include heading-font;
+	    			font-weight: 400;
+	    			letter-spacing: 1px;
+	    			color: $brand-primary;
+	    			&:hover,
+	    			&:focus {
+	    				border-radius: 5px;
+	    				color: white;
+	    				outline: none;
+	    				background-color: darken($brand-primary, 10%);
+	    			}
+	    		}
+	    	}
+	    }
+	    .navbar-nav>.active>a {
+			border-radius: 5px;
+			color: white;
+			background-color: darken($brand-primary, 10%);
+		}
+		.navbar-brand {
+	        font-size: 1.5em;
+	    }    
+	}
+}
+
+header {
+	background-image: url('../img/slide/img_01.jpg');
+	background-repeat: none;
+	background-attachment: scroll;
+	background-position: center center;
+	@include background-cover;
+	text-align: center;
+	color: white;
+	.intro-text {
+		padding-top: 50px;
+		padding-bottom: 50px;
+		p {
+			text-align: justify;
+			font-size: 13px;
+		}
+		.logo {
+			margin: 100px 0;
+		}
+		.intro-lead-in {
+			@include serif-font;
+			font-style: italic;
+			font-size: 22px;
+			line-height: 22px;
+			margin-bottom: 25px;
+		}
+		.intro-heading {
+			@include heading-font;
+			font-weight: 700;
+			font-size: 50px;
+			line-height: 50px;
+			margin-bottom: 25px;
+		}
+	}
+}
+
+@media(max-width:768px) {
+	header {
+		.intro-text {
+			.texto {
+				background-color: $brand-primary;
+				border-radius: 10px;
+				padding: 30px;
+			}
+		}
+	}
+}
+
+@media(min-width:768px) {
+	header {
+		.intro-text {
+			padding-top: 120px;
+			padding-bottom: 100px;
+			.intro-lead-in {
+				@include serif-font;
+				font-style: italic;
+				font-size: 40px;
+				line-height: 40px;
+				margin-bottom: 25px;
+			}
+			.intro-heading {
+				@include heading-font;
+				font-weight: 700;
+				font-size: 75px;
+				line-height: 75px;
+				margin-bottom: 50px;
+			}
+		}
+	}
+}
+
+// Global Section Styles
+
+section {
+    padding: 100px 0;
+    h2.section-heading {
+		font-size: 40px;
+		margin-top: 0;
+		margin-bottom: 15px;
+    }
+    h3.section-subheading {
+		font-size: 16px;
+		@include serif-font;
+		text-transform: none;
+		font-style: italic;
+		font-weight: 400;
+		margin-bottom: 75px;
+    }
+}
+
+@media(min-width:768px) {
+	section {
+		padding: 150px 0;
+	}
+}
+
+// Services Section
+
+.service-heading {
+	margin: 15px 0;
+	text-transform: none;
+}
+
+// Portfolio Section
+
+#o_que_e {
+	background-color: $brand-primary;
+	padding: 0px;
+	.bg-image {
+		padding: 100px 0;
+		background-image: url('../img/layout/imgBg_OQueE.jpg');
+		background-repeat: none;
+		background-attachment: scroll;
+		background-position: center center;
+		@include background-cover;
+		padding-bottom: 50px;
+		.header-container {
+			color: white;
+			text-align: center;
+			border-radius: 10px;
+			padding: 10px;
+			margin-bottom: 10px;
+			@include background-opacity($gray, 0.9);
+		}
+		.texto-container {
+			text-align: justify;
+			border-radius: 10px;
+			padding: 30px;
+			@include background-opacity($white-bg, 0.5);
+		}
+	}
+	
+	.bg-solid {
+		padding: 50px 0;
+		background-color: $brand-primary;
+		.header-container {
+			color: white;
+			text-align: center;
+			border: 1px solid white;
+			border-radius: 10px;
+			padding: 10px;
+			margin-bottom: 10px;
+		}
+		.texto-container {
+			text-align: justify;
+			padding: 30px;
+			color: white;
+		}
+	}
+}
+
+#como_funciona {
+	padding: 100px 0;
+	background-image: url('../img/layout/imgBg_ComoFunciona.jpg');
+	background-repeat: none;
+	background-attachment: scroll;
+	background-position: center center;
+	@include background-cover;
+	color: white;
+	text-align: justify;
+}
+
+
+section#faca_contato {
+	background-color: $brand-primary;
+	color: white;
+	a {
+		color: white;
+	}
+	.section-heading {
+		color: white;
+	}
+	.form-group {
+		margin-bottom: 25px;
+		input,
+		textarea {
+			padding: 20px;
+		}
+		input.form-control {
+			height: auto;
+		}
+		textarea.form-control {
+			height: 236px;
+		}
+	}
+	.form-control:focus {
+		border-color: $brand-primary;
+		box-shadow: none;
+	}
+	::-webkit-input-placeholder {
+	   @include heading-font;
+	   font-weight: 700;
+	   color: $placeholder-text;
+	}
+	:-moz-placeholder { /* Firefox 18- */
+	   @include heading-font;
+	   font-weight: 700;
+	   color: $placeholder-text;
+	}
+	::-moz-placeholder {  /* Firefox 19+ */
+	   @include heading-font;
+	   font-weight: 700;
+	   color: $placeholder-text;
+	}
+	:-ms-input-placeholder {  
+	   @include heading-font;
+	   font-weight: 700;
+	   color: $placeholder-text;
+	}
+	.text-danger {
+		color: $brand-danger;
+	}
+}
+
+// Footer
+
+footer {
+	padding: 25px 0;
+	text-align: center;
+	color: #ffffff;
+	span.copyright {
+		line-height: 40px;
+		@include heading-font;
+		text-transform: none;
+	}
+	ul.quicklinks {
+		margin-bottom: 0;
+		line-height: 40px;
+		@include heading-font;
+		text-transform: none;
+	}
+}
+
+// Social Buttons
+
+ul.social-buttons {
+	margin-bottom: 0;
+	li {
+		a {
+			display: block;
+			background-color: $gray;
+			height: 40px;
+			width: 40px;
+			border-radius: 100%;
+			font-size: 20px;
+			line-height: 40px;
+			color: white;
+			outline: none;
+	        -webkit-transition: all 0.3s;
+	        -moz-transition: all 0.3s;
+	        transition: all 0.3s;
+	        &:hover,
+	        &:focus,
+	        &:active {
+				background-color: $brand-primary;
+	        }
+		}
+	}
+}
+
+.btn:focus,
+.btn:active,
+.btn.active,
+.btn:active:focus {
+	outline: none;
+}
+
+.portfolio-modal {
+	.modal-content {
+	    border-radius: 0;
+	    background-clip: border-box;
+	    -webkit-box-shadow: none;
+	    box-shadow: none;
+	    border: none;
+	    min-height: 100%;
+	    padding: 100px 0;
+	    text-align: center;
+		h2 {
+	    	margin-bottom: 15px;
+	    	font-size: 3em;
+		}
+		p {
+			margin-bottom: 30px;
+		}
+		p.item-intro {
+			margin: 20px 0 30px;
+			@include serif-font;
+			font-style: italic;
+			font-size: 16px;
+		}
+		ul.list-inline {
+			margin-bottom: 30px;
+			margin-top: 0;
+		}
+		img {
+			margin-bottom: 30px;
+		}
+	}
+    .close-modal {
+        position: absolute;
+        width:75px;
+        height:75px;
+        background-color:transparent;
+        top: 25px;
+        right: 25px;
+        cursor: pointer;
+        &:hover {
+            opacity: 0.3;
+        }
+        .lr {
+            height:75px;
+            width:1px;
+            margin-left:35px;
+            background-color:$gray-darkest;
+            transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            /* IE 9 */
+            -webkit-transform: rotate(45deg);
+            /* Safari and Chrome */
+            z-index:1051;
+            .rl {
+                height:75px;
+                width:1px;
+                background-color:$gray-darkest;
+                transform: rotate(90deg);
+                -ms-transform: rotate(90deg);
+                /* IE 9 */
+                -webkit-transform: rotate(90deg);
+                /* Safari and Chrome */
+                z-index:1052;
+            }            
+        }        
+    }
+}
+
+// Highlight Color Customization
+
+::-moz-selection {
+    text-shadow: none;
+    background: $brand-primary;
+}
+
+::selection {
+    text-shadow: none;
+    background: $brand-primary;
+}
+
+img::selection {
+    background: transparent;
+}
+
+img::-moz-selection {
+    background: transparent;
+}
+
+body {
+    webkit-tap-highlight-color: $brand-primary;
+}
